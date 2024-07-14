@@ -20,34 +20,34 @@ export function Navbar({
 }: React.HTMLAttributes<HTMLElement>) {
 	return (
 		<nav
-			className={cn('flex items-center space-x-4 lg:space-x-6', className)}
+			className={cn(
+				'flex items-center gap-4 p-4 lg:w-full lg:max-w-5xl lg:grid-cols-4 m-auto',
+				className
+			)}
 			{...props}
 		>
 			<Link
-				href="/examples/dashboard"
+				href="/"
 				className="text-sm font-medium transition-colors hover:text-primary"
 			>
 				Overview
 			</Link>
 			<Link
-				href="/examples/dashboard"
+				href="/transactions"
 				className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
 			>
-				Customers
+				Transactions
 			</Link>
 			<Link
-				href="/examples/dashboard"
+				href="/escrows"
 				className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
 			>
-				Products
+				My Escrows
 			</Link>
-			<Link
-				href="/examples/dashboard"
-				className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-			>
-				Settings
-			</Link>
-			<MultiButtonFix />
+			<div className="ml-auto">
+				<MultiButtonFix />
+			</div>
+			{/* <MultiButtonFix /> */}
 			{/* <WalletDisconnectButton /> */}
 		</nav>
 	)

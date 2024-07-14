@@ -1,20 +1,8 @@
-import {
-	Keypair,
-	LAMPORTS_PER_SOL,
-	PublicKey,
-	SystemProgram,
-	Transaction,
-} from '@solana/web3.js'
+import { PublicKey } from '@solana/web3.js'
 
 import {
-	MINT_SIZE,
 	TOKEN_2022_PROGRAM_ID,
-	// TOKEN_PROGRAM_ID,
-	createAssociatedTokenAccountIdempotentInstruction,
-	createInitializeMint2Instruction,
-	createMintToInstruction,
 	getAssociatedTokenAddressSync,
-	getMinimumBalanceForRentExemptMint,
 	getMint,
 } from '@solana/spl-token'
 import { useProgram } from '@/context/program-provider'
