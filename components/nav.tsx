@@ -1,11 +1,18 @@
+'use client'
 import Link from 'next/link'
 
 import { cn } from '@/lib/utils'
 
-import {
-	WalletDisconnectButton,
-	WalletMultiButton,
-} from '@solana/wallet-adapter-react-ui'
+import dynamic from 'next/dynamic'
+
+export const MultiButtonFix = dynamic(
+	async () =>
+		(await import('@solana/wallet-adapter-react-ui')).WalletMultiButton,
+	{
+		ssr: false,
+		loading: () => <div className=" p-5 w-20 rounded-lg">Loading...</div>,
+	}
+)
 
 export function Navbar({
 	className,
@@ -40,8 +47,8 @@ export function Navbar({
 			>
 				Settings
 			</Link>
-			<WalletMultiButton />
-			<WalletDisconnectButton />
+			<MultiButtonFix />
+			{/* <WalletDisconnectButton /> */}
 		</nav>
 	)
 }
